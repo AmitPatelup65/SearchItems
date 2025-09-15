@@ -14,9 +14,9 @@ function Home() {
     getdata()
   },[])
   const handle=()=> {
-     let x=data.filter((item)=>item.title.toLowerCase().includes(search.toLowerCase()))
+     let x=data.filter((item)=>item.brand.toLowerCase().includes(search.toLowerCase()))
      setsort(x)
-    //  console.log(sort)
+    
   }
   console.log(search)
   return (
@@ -27,6 +27,7 @@ function Home() {
        
          />
          <button onClick={()=>handle()} className='border-3 active:scale-90'>Search</button>
+         { console.log(sort)}
     </div>
   )
 }
