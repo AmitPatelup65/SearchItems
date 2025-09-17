@@ -8,13 +8,11 @@ function ContextApi({children}) {
     const getdata=async()=>{
         const res=await axios.get('https://dummyjson.com/products')
         setdata(res.data.products)
-       
     }
-
     useEffect(()=>{
         getdata()
     },[]);
-    
+
   return (
     <Context.Provider value={{data,getdata,setdata}}>
       {children}

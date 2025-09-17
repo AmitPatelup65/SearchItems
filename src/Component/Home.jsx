@@ -6,15 +6,15 @@ function Home() {
     const [search, setsearch] = useState("")
     const [sort, setsort] = useState([])
   const getdata=async()=>{
-    const res=await axios.get('https://dummyjson.com/products')
-    setdata(res.data.products)
+    const res=await axios.get('https://fakestoreapi.com/products')
+    setdata(res.data)
     // console.log(data)
   }
   useEffect(()=>{
     getdata()
   },[])
   const handle=()=> {
-     let x=data.filter((item)=>item.brand.toLowerCase().includes(search.toLowerCase()))
+     let x=data.filter((item)=>item.title.toLowerCase().includes(search.toLowerCase()))
      setsort(x)
     
   }
@@ -26,7 +26,7 @@ function Home() {
         onChange={(e)=> setsearch(e.target.value) }
        
          />
-         <button onClick={()=>handle()} className='border-3 active:scale-90'>Search</button>
+         <button onClick={()=>handle()} className='border-3 active:scale-90 ml-2 rounded-md'>Search</button>
          { console.log(sort)}
     </div>
   )
